@@ -7,7 +7,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import Beer from '../Beer/Beer'
+import Beer from '../Beer/Beer';
 
 class ListBeers extends Component {
     componentWillMount() {
@@ -16,9 +16,15 @@ class ListBeers extends Component {
     render() {
         let list = this.props.listBeers.map(beer => {
             return (
-                <Beer beer = {beer} key = {beer.id}/>
+                <Beer beer={beer} key={beer.id} />
             )
         });
+        if (list.length === 0 && !this.props.progress)
+            list.push(
+                <TableRow key = {'noBeer'}>
+                    <TableCell>Пива нет</TableCell>
+                </TableRow>
+            )
         return (
             <Paper>
                 <Table >
@@ -42,7 +48,8 @@ class ListBeers extends Component {
 
 export default connect(
     state => ({
-        listBeers: state.listBeers
+        listBeers: state.listBeers,
+        progress: state.progress
     }),
     dispatch => ({
         newListBeers: (page) => dispatch(newListBeers(page))

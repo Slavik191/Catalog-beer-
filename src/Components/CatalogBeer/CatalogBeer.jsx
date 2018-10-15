@@ -5,11 +5,13 @@ import SwitchingPage from '../SwitchingPage/SwitchingPage';
 import BeerInfo from '../BeerInfo/BeerInfo';
 import Filter from '../Filter/Filter';
 import ButtonFilterOpenAndRandomBeer from '../ButtonFilterOpenAndRandomBeer/ButtonFilterOpenAndRandomBeer';
+import Progress from '../Progress/Progress'
 
 class CatalogBeer extends Component{
     render(){
         return(
             <div>
+                {this.props.progress && <Progress />}
                 <ButtonFilterOpenAndRandomBeer />
                 <Filter />
                 <BeerInfo />
@@ -22,6 +24,7 @@ class CatalogBeer extends Component{
 
 export default connect(
     state => ({
+        progress: state.progress
     }),
     dispatch => ({
     })
