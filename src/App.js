@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import CatalogBeer from './Components/CatalogBeer/CatalogBeer';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
-      <div></div>
+      <CatalogBeer />
     );
   }
 }
