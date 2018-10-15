@@ -8,6 +8,9 @@ export default function page(state = initialState, action) {
         case 'PREV_PAGE':
             return --state;
             break;
+        case 'DEFAOULT_PAGE':
+            return 1;
+            break;
         default:
             break;
     }

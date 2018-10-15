@@ -7,6 +7,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Beer from '../Beer/Beer'
 
 class ListBeers extends Component {
     componentWillMount() {
@@ -15,15 +16,7 @@ class ListBeers extends Component {
     render() {
         let list = this.props.listBeers.map(beer => {
             return (
-                <TableRow key={beer.id}>
-                    <TableCell component="th" scope="row">
-                        {beer.name}
-                    </TableCell>
-                    <TableCell numeric>{beer.abv}</TableCell>
-                    <TableCell numeric>{beer.ebc}</TableCell>
-                    <TableCell numeric>{beer.srm}</TableCell>
-                    <TableCell numeric>{beer.ibu}</TableCell>
-                </TableRow>
+                <Beer beer = {beer} key = {beer.id}/>
             )
         });
         return (
